@@ -1,38 +1,230 @@
-.App {
+/* General Reset and Font Setup */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  box-sizing: border-box; /* Ensure box-sizing includes padding and border in width calculation */
+}
+
+h1, h2 {
   text-align: center;
+  color: #2c3e50;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Apply box-sizing to all elements */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Buttons */
+button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover {
+  background-color: #2980b9;
+}
+
+.container {
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Inputs */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 12px;
+  margin: 8px 0;
+  width: 100%; /* Ensure input fills available width */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #3498db;
+  background-color: #fff;
+  outline: none;
+}
+
+label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+/* Game Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.controls > button {
+  flex: 1 1 45%;
+  margin: 5px;
+}
+
+/* Game Settings */
+.settings {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.settings h3 {
+  margin-bottom: 15px;
+  color: #2980b9;
+  font-size: 18px;
+}
+
+.settings input,
+.settings select {
+  margin-top: 10px;
+}
+
+.settings button {
+  width: 100%;
+  background-color: #2ecc71;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .controls > button {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* Scoreboard Container */
+.scoreboard-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.scoreboard-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2980b9;
+}
+
+/* Modern Table Design */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+table th {
+  background-color: #2980b9;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+table td {
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-child(even) td {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+table tr:hover td {
+  background-color: #e3f2fd; /* Light hover effect */
+}
+
+table td:last-child {
+  border-bottom: none; /* Remove the last row bottom border */
+}
+
+/* Player Info Cards */
+.player-card {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.player-card p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c3e50;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player-card .player-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3498db;
+}
+
+.player-card .player-info {
+  text-align: right;
+}
+
+.player-card .player-info span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.player-card .player-info span strong {
+  font-weight: 600;
+  color: #2980b9;
 }
