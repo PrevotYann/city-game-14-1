@@ -1,50 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 
 function GameSettings({
+  winningScore,
   setWinningScore,
+  handicap1,
   setHandicap1,
+  handicap2,
   setHandicap2,
+  rackSize,
   setRackSize,
+  resetGame,
 }) {
+  const [localWinningScore, setLocalWinningScore] = useState(winningScore);
+  const [localHandicap1, setLocalHandicap1] = useState(handicap1);
+  const [localHandicap2, setLocalHandicap2] = useState(handicap2);
+  const [localRackSize, setLocalRackSize] = useState(rackSize);
+
+  const saveSettings = () => {
+    setWinningScore(localWinningScore);
+    setHandicap1(localHandicap1);
+    setHandicap2(localHandicap2);
+    setRackSize(localRackSize);
+    resetGame();
+  };
+
   return (
-    <div className="settings">
-      <h3>Game Settings</h3>
-      <label htmlFor="winningScore">Winning Score</label>
-      <input
-        type="number"
-        id="winningScore"
-        onChange={(e) => setWinningScore(Number(e.target.value))}
-        placeholder="Enter Winning Score"
-      />
-
-      <label htmlFor="handicap1">Player 1 Handicap</label>
-      <input
-        type="number"
-        id="handicap1"
-        onChange={(e) => setHandicap1(Number(e.target.value))}
-        placeholder="Enter Player 1 Handicap"
-      />
-
-      <label htmlFor="handicap2">Player 2 Handicap</label>
-      <input
-        type="number"
-        id="handicap2"
-        onChange={(e) => setHandicap2(Number(e.target.value))}
-        placeholder="Enter Player 2 Handicap"
-      />
-
-      <label htmlFor="rackSize">Rack Size (Balls)</label>
-      <select
-        id="rackSize"
-        onChange={(e) => setRackSize(Number(e.target.value))}
-      >
-        <option value="15">15 Balls</option>
-        <option value="10">10 Balls</option>
-        <option value="9">9 Balls</option>
-        <option value="8">8 Balls</option>
-      </select>
-
-      <button onClick={() => alert("Settings Saved!")}>Save Settings</button>
+    <div className="game-settings">
+      <h2>Game Settings</h2>
+      <div className="settings-row">
+        <label>Winning Score:</label>
+        <input
+          type="number"
+          value={localWinningScore}
+          onChange={(e) => setLocalWinningScore(Number(e.target.value))}
+        />
+      </div>
+      <div className="settings-row">
+        <label>Player 1 Handicap:</label>
+        <input
+          type="number"
+          value={localHandicap1}
+          onChange={(e) => setLocalHandicap1(Number(e.target.value))}
+        />
+      </div>
+      <div className="settings-row">
+        <label>Player 2 Handicap:</label>
+        <input
+          type="number"
+          value={localHandicap2}
+          onChange={(e) => setLocalHandicap2(Number(e.target.value))}
+        />
+      </div>
+      <div className="settings-row">
+        <label>Rack Size:</label>
+        <input
+          type="number"
+          value={localRackSize}
+          onChange={(e) => setLocalRackSize(Number(e.target.value))}
+        />
+      </div>
+      <button onClick={saveSettings}>Save Settings</button>
     </div>
   );
 }
