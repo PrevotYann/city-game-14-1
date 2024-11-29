@@ -85,10 +85,15 @@ function App() {
           player2={player2}
         />
         <GameSettings
+          winningScore={winningScore}
           setWinningScore={setWinningScore}
+          handicap1={handicap1}
           setHandicap1={setHandicap1}
+          handicap2={handicap2}
           setHandicap2={setHandicap2}
+          rackSize={rackSize}
           setRackSize={setRackSize}
+          resetGame={resetGame}
         />
       </div>
     </div>
