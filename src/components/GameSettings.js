@@ -40,6 +40,7 @@ function GameSettings({
       >
         <option value="15">15 Balls</option>
         <option value="10">10 Balls</option>
+        <option value="9">9 Balls</option>
         <option value="8">8 Balls</option>
       </select>
 
