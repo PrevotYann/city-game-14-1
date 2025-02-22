@@ -56,12 +56,6 @@ function GameControls({
   };
 
   const decrementScoreAndFoul = (player) => {
-    if (balls > 1) {
-      setBalls(balls - 1);
-    } else {
-      setBalls(15); // Reset rack when only one ball remains
-    }
-
     if (player === 1) {
       setScore1(score1 - 1);
       setFouls1(fouls1 + 1);
