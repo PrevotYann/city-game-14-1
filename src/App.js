@@ -28,6 +28,7 @@ function App() {
   const [rackSize, setRackSize] = useState(15);
   const [currentRun1, setCurrentRun1] = useState(1);
   const [currentRun2, setCurrentRun2] = useState(1);
+  const [maxBreakCount, setMaxBreakCount] = useState(0);
 
   useEffect(() => {
     setFocusedPlayer(player1);
@@ -75,6 +76,10 @@ function App() {
           fouls2={fouls2}
           mean1={mean1}
           mean2={mean2}
+          focusedPlayer={focusedPlayer}
+          balls={balls}
+          maxBreakCount={maxBreakCount}
+          winningScore={winningScore}
         />
         <GameControls
           round={round}
@@ -122,6 +127,8 @@ function App() {
           resetGame={resetGame}
           player1={player1}
           player2={player2}
+          maxBreakCount={maxBreakCount}
+          setMaxBreakCount={setMaxBreakCount}
         />
       </div>
     </div>

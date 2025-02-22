@@ -105,8 +105,7 @@ function GameControls({
       <button onClick={() => changeFocusedPlayer(focusedPlayer)}>
         Changer joueur (actuel: {focusedPlayer})
       </button>
-      <p>Round: {round}</p>
-      <p>Balles restantes: {balls}</p>
+      {/* <p>Round: {round}</p> */}
       <div>
         <button onClick={() => incrementScore(focusedPlayerNumber)}>
           {focusedPlayer} +1
@@ -117,7 +116,7 @@ function GameControls({
         </button>
       </div>
       <button onClick={nextRound}>Round suivant</button>
-      <button onClick={resetGame}>Reset Game</button>
+      <button onClick={resetGame}>Remise à zéro</button>
     </div>
   );
 }

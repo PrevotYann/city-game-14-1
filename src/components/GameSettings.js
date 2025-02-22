@@ -12,17 +12,21 @@ function GameSettings({
   resetGame,
   player1,
   player2,
+  maxBreakCount,
+  setMaxBreakCount,
 }) {
   const [localWinningScore, setLocalWinningScore] = useState(winningScore);
+  const [localBreakCount, setLocalBreakCount] = useState(maxBreakCount);
   // const [localHandicap1, setLocalHandicap1] = useState(handicap1);
   // const [localHandicap2, setLocalHandicap2] = useState(handicap2);
-  const [localRackSize, setLocalRackSize] = useState(rackSize);
+  // const [localRackSize, setLocalRackSize] = useState(rackSize);
 
   const saveSettings = () => {
     setWinningScore(localWinningScore);
+    setMaxBreakCount(localBreakCount);
     // setHandicap1(localHandicap1);
     // setHandicap2(localHandicap2);
-    setRackSize(localRackSize);
+    // setRackSize(localRackSize);
     resetGame();
   };
 
@@ -35,6 +39,14 @@ function GameSettings({
           type="number"
           value={localWinningScore}
           onChange={(e) => setLocalWinningScore(Number(e.target.value))}
+        />
+      </div>
+      <div>
+        <label>Nombre de reprises max:</label>
+        <input
+          type="number"
+          value={localBreakCount}
+          onChange={(e) => setLocalBreakCount(Number(e.target.value))}
         />
       </div>
       {/* <div className="settings-row">
@@ -53,14 +65,14 @@ function GameSettings({
           onChange={(e) => setLocalHandicap2(Number(e.target.value))}
         />
       </div> */}
-      <div className="settings-row">
+      {/* <div className="settings-row">
         <label>Taille du rack:</label>
         <input
           type="number"
           value={localRackSize}
           onChange={(e) => setLocalRackSize(Number(e.target.value))}
         />
-      </div>
+      </div> */}
       <button onClick={saveSettings}>Save Settings</button>
     </div>
   );
