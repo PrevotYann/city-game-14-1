@@ -50,23 +50,32 @@ function Scoreboard({
       >
         <div
           className="player-name"
-          style={{ fontSize: "22px", fontWeight: "bold", color: "#333" }}
+          style={{ fontSize: "22px", color: "#333" }}
         >
+          <span style={{ fontWeight: "bold" }}></span>
           {player1}
           <div
             style={{
               fontSize: "40px",
-              fontWeight: "bold",
               background: "linear-gradient(45deg, #4a90e2, #80c1ff)",
               WebkitBackgroundClip: "text",
               color: "transparent",
             }}
           >
             {score1}
-            <div style={{ fontSize: "16px", color: "#555" }}>
+            <div
+              style={{
+                fontSize: "16px",
+                fontWeight: "lighter",
+                color: "#555",
+                marginTop: "30px",
+              }}
+            >
               Billes restantes: {winningScore - score1}
             </div>
-            <div style={{ fontSize: "16px", color: "#555" }}>
+            <div
+              style={{ fontSize: "16px", fontWeight: "lighter", color: "#555" }}
+            >
               Reprises restantes: {maxBreakCount - innings1}
             </div>
           </div>
@@ -121,33 +130,43 @@ function Scoreboard({
           padding: "20px",
           borderRadius: "10px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          width: "100%", // Full width
+          width: "100%", // Makes it stretch full width
           textAlign: "center",
         }}
       >
         <div
           className="player-name"
-          style={{ fontSize: "22px", fontWeight: "bold", color: "#333" }}
+          style={{ fontSize: "22px", color: "#333" }}
         >
+          <span style={{ fontWeight: "bold" }}></span>
           {player2}
+          <div
+            style={{
+              fontSize: "40px",
+              background: "linear-gradient(45deg, #4a90e2, #80c1ff)",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {score2}
+            <div
+              style={{
+                fontSize: "16px",
+                fontWeight: "lighter",
+                color: "#555",
+                marginTop: "30px",
+              }}
+            >
+              Billes restantes: {winningScore - score2}
+            </div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "lighter", color: "#555" }}
+            >
+              Reprises restantes: {maxBreakCount - innings2}
+            </div>
+          </div>
         </div>
-        <div
-          style={{
-            fontSize: "40px",
-            fontWeight: "bold",
-            background: "linear-gradient(45deg, #4a90e2, #80c1ff)",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          {score2}
-        </div>
-        <div style={{ fontSize: "16px", color: "#555" }}>
-          Billes restantes: {winningScore - score2}
-        </div>
-        <div style={{ fontSize: "16px", color: "#555" }}>
-          Reprises restantes: {maxBreakCount - innings2}
-        </div>
+
         <div className="player-info" style={{ marginTop: "10px" }}>
           <span>
             <strong>Reprises:</strong> {innings2}

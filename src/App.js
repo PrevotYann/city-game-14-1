@@ -114,6 +114,7 @@ function App() {
           setCurrentRun1={setCurrentRun1}
           currentRun2={currentRun2}
           setCurrentRun2={setCurrentRun2}
+          maxBreakCount={maxBreakCount}
         />
         <GameSettings
           winningScore={winningScore}
