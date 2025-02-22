@@ -71,14 +71,23 @@ function GameControls({
     }
   };
 
+  const decrementScore = (player) => {
+    if (balls > 1) {
+      setBalls(balls - 1);
+    } else {
+      setBalls(15); // Reset rack when only one ball remains
+    }
+
+    if (player === 1) {
+      setScore1(score1 - 1);
+    } else {
+      setScore2(score2 - 1);
+    }
+  };
+
   const updateHighRun = (player, currentRun) => {
     if (player === 1 && currentRun > highRun1) setHighRun1(currentRun);
     if (player === 2 && currentRun > highRun2) setHighRun2(currentRun);
-  };
-
-  const nextRound = () => {
-    setRound(round + 1);
-    setBalls(15); // Reset balls for a new round
   };
 
   const changeFocusedPlayer = (focusedPlayer) => {
@@ -120,18 +129,25 @@ function GameControls({
   return (
     <div>
       <button onClick={() => changeFocusedPlayer(focusedPlayer)}>
-        Changer de joueur
+        Changer joueur
       </button>
-      <button onClick={() => incrementScore(focusedPlayerNumber)}>
-        {focusedPlayer} +1
+      <button
+        style={{ fontWeight: "bolder" }}
+        onClick={() => incrementScore(focusedPlayerNumber)}
+      >
+        +
+      </button>
+      <button
+        style={{ fontWeight: "bolder" }}
+        onClick={() => decrementScore(focusedPlayerNumber)}
+      >
+        -
       </button>
 
       <button onClick={() => decrementScoreAndFoul(focusedPlayerNumber)}>
-        {focusedPlayer} Faute -1
+        Faute
       </button>
-      <div>
-        <button onClick={resetGame}>Remise à zéro</button>
-      </div>
+      <button onClick={resetGame}>Reset</button>
     </div>
   );
 }
