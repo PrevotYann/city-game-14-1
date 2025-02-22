@@ -21,7 +21,7 @@ function App() {
   const [fouls2, setFouls2] = useState(0);
   const [mean1, setMean1] = useState(0);
   const [mean2, setMean2] = useState(0);
-  const [winningScore, setWinningScore] = useState(40); // Default target score
+  const [winningScore, setWinningScore] = useState(0); // Default target score
   const [handicap1, setHandicap1] = useState(0);
   const [handicap2, setHandicap2] = useState(0);
   const [rackSize, setRackSize] = useState(15);
