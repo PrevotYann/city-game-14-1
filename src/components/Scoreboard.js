@@ -11,11 +11,13 @@ function Scoreboard({
   highRun2,
   fouls1,
   fouls2,
+  mean1,
+  mean2,
 }) {
   return (
     <div className="scoreboard-container">
       <h2 className="scoreboard-title">Scoreboard</h2>
-      
+
       {/* Player 1 Card */}
       <div className="player-card">
         <div className="player-name">{player1}</div>
@@ -24,13 +26,16 @@ function Scoreboard({
             <strong>Score:</strong> {score1}
           </span>
           <span>
-            <strong>Innings (I):</strong> {innings1}
+            <strong>Reprises (I):</strong> {innings1}
           </span>
           <span>
-            <strong>High Run (H):</strong> {highRun1}
+            <strong>Meilleur break(H):</strong> {highRun1}
           </span>
           <span>
-            <strong>Fouls (Ø):</strong> {fouls1}
+            <strong>Fouls (F):</strong> {fouls1}
+          </span>
+          <span>
+            <strong>Moyenne (Ø):</strong> {mean1}
           </span>
         </div>
       </div>
@@ -43,17 +48,19 @@ function Scoreboard({
             <strong>Score:</strong> {score2}
           </span>
           <span>
-            <strong>Innings (I):</strong> {innings2}
+            <strong>Reprises (I):</strong> {innings2}
           </span>
           <span>
-            <strong>High Run (H):</strong> {highRun2}
+            <strong>Meilleur break(H):</strong> {highRun2}
           </span>
           <span>
-            <strong>Fouls (Ø):</strong> {fouls2}
+            <strong>Fouls (F):</strong> {fouls2}
+          </span>
+          <span>
+            <strong>Moyenne (Ø):</strong> {mean2}
           </span>
         </div>
       </div>
-      
     </div>
   );
 }

@@ -10,16 +10,18 @@ function GameSettings({
   rackSize,
   setRackSize,
   resetGame,
+  player1,
+  player2,
 }) {
   const [localWinningScore, setLocalWinningScore] = useState(winningScore);
-  const [localHandicap1, setLocalHandicap1] = useState(handicap1);
-  const [localHandicap2, setLocalHandicap2] = useState(handicap2);
+  // const [localHandicap1, setLocalHandicap1] = useState(handicap1);
+  // const [localHandicap2, setLocalHandicap2] = useState(handicap2);
   const [localRackSize, setLocalRackSize] = useState(rackSize);
 
   const saveSettings = () => {
     setWinningScore(localWinningScore);
-    setHandicap1(localHandicap1);
-    setHandicap2(localHandicap2);
+    // setHandicap1(localHandicap1);
+    // setHandicap2(localHandicap2);
     setRackSize(localRackSize);
     resetGame();
   };
@@ -28,15 +30,15 @@ function GameSettings({
     <div className="game-settings">
       <h2>Game Settings</h2>
       <div className="settings-row">
-        <label>Winning Score:</label>
+        <label>Score à atteindre:</label>
         <input
           type="number"
           value={localWinningScore}
           onChange={(e) => setLocalWinningScore(Number(e.target.value))}
         />
       </div>
-      <div className="settings-row">
-        <label>Player 1 Handicap:</label>
+      {/* <div className="settings-row">
+        <label>{player1} Handicap:</label>
         <input
           type="number"
           value={localHandicap1}
@@ -44,15 +46,15 @@ function GameSettings({
         />
       </div>
       <div className="settings-row">
-        <label>Player 2 Handicap:</label>
+        <label>{player2} Handicap:</label>
         <input
           type="number"
           value={localHandicap2}
           onChange={(e) => setLocalHandicap2(Number(e.target.value))}
         />
-      </div>
+      </div> */}
       <div className="settings-row">
-        <label>Rack Size:</label>
+        <label>Taille du rack:</label>
         <input
           type="number"
           value={localRackSize}

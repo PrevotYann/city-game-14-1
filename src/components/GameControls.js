@@ -25,11 +25,17 @@ function GameControls({
   resetGame,
   player1,
   player2,
+  focusedPlayer,
+  setFocusedPlayer,
+  focusedPlayerNumber,
+  setFocusedPlayerNumber,
+  currentRun1,
+  setCurrentRun1,
+  currentRun2,
+  setCurrentRun2,
 }) {
   const incrementScore = (player) => {
-    const currentRun = balls; // Assuming current run is equal to balls pocketed in this turn
-
-    if (balls > 1) {
+    if (balls > 2) {
       setBalls(balls - 1);
     } else {
       setBalls(15); // Reset rack when only one ball remains
@@ -37,12 +43,30 @@ function GameControls({
 
     if (player === 1) {
       setScore1(score1 + 1);
-      updateHighRun(1, currentRun);
+      setCurrentRun1(currentRun1 + 1);
+      updateHighRun(1, currentRun1);
       if (score1 + 1 >= winningScore) alert(`${player1} wins!`);
     } else {
       setScore2(score2 + 1);
-      updateHighRun(2, currentRun);
+      setCurrentRun2(currentRun2 + 1);
+      updateHighRun(2, currentRun2);
       if (score2 + 1 >= winningScore) alert(`${player2} wins!`);
+    }
+  };
+
+  const decrementScoreAndFoul = (player) => {
+    if (balls > 1) {
+      setBalls(balls - 1);
+    } else {
+      setBalls(15); // Reset rack when only one ball remains
+    }
+
+    if (player === 1) {
+      setScore1(score1 - 1);
+      setFouls1(fouls1 + 1);
+    } else {
+      setScore2(score2 - 1);
+      setFouls2(fouls2 + 1);
     }
   };
 
@@ -56,28 +80,43 @@ function GameControls({
     if (player === 2 && currentRun > highRun2) setHighRun2(currentRun);
   };
 
-  const incrementFoul = (player) => {
-    if (player === 1) setFouls1(fouls1 + 1);
-    else setFouls2(fouls2 + 1);
-  };
-
   const nextRound = () => {
     setRound(round + 1);
     setBalls(15); // Reset balls for a new round
   };
 
+  const changeFocusedPlayer = (focusedPlayer) => {
+    if (focusedPlayer === player1) {
+      setFocusedPlayer(player2);
+      setFocusedPlayerNumber(2);
+      setCurrentRun1(1);
+      setInnings2(innings2 + 1);
+    } else {
+      setFocusedPlayer(player1);
+      setFocusedPlayerNumber(1);
+      setCurrentRun2(1);
+      setInnings1(innings1 + 1);
+    }
+  };
+
   return (
     <div>
-      <h2>Game Controls</h2>
+      <h2>Paramètres de la partie</h2>
+      <button onClick={() => changeFocusedPlayer(focusedPlayer)}>
+        Changer joueur (actuel: {focusedPlayer})
+      </button>
       <p>Round: {round}</p>
-      <p>Balls Remaining: {balls}</p>
-      <button onClick={() => incrementScore(1)}>Player 1 Scores</button>
-      <button onClick={() => incrementScore(2)}>Player 2 Scores</button>
-      <button onClick={() => nextInning(1)}>Player 1 Next Inning</button>
-      <button onClick={() => nextInning(2)}>Player 2 Next Inning</button>
-      <button onClick={() => incrementFoul(1)}>Player 1 Foul</button>
-      <button onClick={() => incrementFoul(2)}>Player 2 Foul</button>
-      <button onClick={nextRound}>Next Round</button>
+      <p>Balles restantes: {balls}</p>
+      <div>
+        <button onClick={() => incrementScore(focusedPlayerNumber)}>
+          {focusedPlayer} +1
+        </button>
+
+        <button onClick={() => decrementScoreAndFoul(focusedPlayerNumber)}>
+          {focusedPlayer} Faute -1
+        </button>
+      </div>
+      <button onClick={nextRound}>Round suivant</button>
       <button onClick={resetGame}>Reset Game</button>
     </div>
   );
