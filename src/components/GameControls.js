@@ -147,7 +147,6 @@ function GameControls({
       <button onClick={() => decrementScoreAndFoul(focusedPlayerNumber)}>
         Faute
       </button>
-      <button onClick={resetGame}>Reset</button>
     </div>
   );
 }

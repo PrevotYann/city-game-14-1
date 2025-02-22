@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlayerInput from "./components/PlayerInput";
 import Scoreboard from "./components/Scoreboard";
-import GameControls from "./components/GameControls";
 import GameSettings from "./components/GameSettings";
 import "./App.css";
 
@@ -63,6 +62,21 @@ function App() {
           setPlayer1={setPlayer1}
           setPlayer2={setPlayer2}
         />
+        <GameSettings
+          winningScore={winningScore}
+          setWinningScore={setWinningScore}
+          handicap1={handicap1}
+          setHandicap1={setHandicap1}
+          handicap2={handicap2}
+          setHandicap2={setHandicap2}
+          rackSize={rackSize}
+          setRackSize={setRackSize}
+          resetGame={resetGame}
+          player1={player1}
+          player2={player2}
+          maxBreakCount={maxBreakCount}
+          setMaxBreakCount={setMaxBreakCount}
+        />
         <Scoreboard
           player1={player1}
           player2={player2}
@@ -80,33 +94,18 @@ function App() {
           balls={balls}
           maxBreakCount={maxBreakCount}
           winningScore={winningScore}
-        />
-        <GameControls
           round={round}
           setRound={setRound}
-          balls={balls}
           setBalls={setBalls}
-          score1={score1}
           setScore1={setScore1}
-          score2={score2}
           setScore2={setScore2}
-          innings1={innings1}
           setInnings1={setInnings1}
-          innings2={innings2}
           setInnings2={setInnings2}
-          highRun1={highRun1}
           setHighRun1={setHighRun1}
-          highRun2={highRun2}
           setHighRun2={setHighRun2}
-          fouls1={fouls1}
           setFouls1={setFouls1}
-          fouls2={fouls2}
           setFouls2={setFouls2}
-          winningScore={winningScore}
           resetGame={resetGame}
-          player1={player1}
-          player2={player2}
-          focusedPlayer={focusedPlayer}
           setFocusedPlayer={setFocusedPlayer}
           focusedPlayerNumber={focusedPlayerNumber}
           setFocusedPlayerNumber={setFocusedPlayerNumber}
@@ -114,23 +113,8 @@ function App() {
           setCurrentRun1={setCurrentRun1}
           currentRun2={currentRun2}
           setCurrentRun2={setCurrentRun2}
-          maxBreakCount={maxBreakCount}
         />
-        <GameSettings
-          winningScore={winningScore}
-          setWinningScore={setWinningScore}
-          handicap1={handicap1}
-          setHandicap1={setHandicap1}
-          handicap2={handicap2}
-          setHandicap2={setHandicap2}
-          rackSize={rackSize}
-          setRackSize={setRackSize}
-          resetGame={resetGame}
-          player1={player1}
-          player2={player2}
-          maxBreakCount={maxBreakCount}
-          setMaxBreakCount={setMaxBreakCount}
-        />
+        <button onClick={resetGame}>Reset</button>
       </div>
     </div>
   );

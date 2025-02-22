@@ -32,7 +32,7 @@ function GameSettings({
 
   return (
     <div className="game-settings">
-      <h2>Game Settings</h2>
+      <h2>Paramètres de la partie</h2>
       <div className="settings-row">
         <label>Score à atteindre:</label>
         <input
