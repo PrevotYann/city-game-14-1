@@ -119,22 +119,19 @@ function GameControls({
 
   return (
     <div>
-      <h2>Paramètres de la partie</h2>
       <button onClick={() => changeFocusedPlayer(focusedPlayer)}>
-        Changer joueur (actuel: {focusedPlayer})
+        Changer de joueur
       </button>
-      {/* <p>Round: {round}</p> */}
-      <div>
-        <button onClick={() => incrementScore(focusedPlayerNumber)}>
-          {focusedPlayer} +1
-        </button>
+      <button onClick={() => incrementScore(focusedPlayerNumber)}>
+        {focusedPlayer} +1
+      </button>
 
-        <button onClick={() => decrementScoreAndFoul(focusedPlayerNumber)}>
-          {focusedPlayer} Faute -1
-        </button>
+      <button onClick={() => decrementScoreAndFoul(focusedPlayerNumber)}>
+        {focusedPlayer} Faute -1
+      </button>
+      <div>
+        <button onClick={resetGame}>Remise à zéro</button>
       </div>
-      <button onClick={nextRound}>Round suivant</button>
-      <button onClick={resetGame}>Remise à zéro</button>
     </div>
   );
 }

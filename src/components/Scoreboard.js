@@ -29,12 +29,12 @@ function Scoreboard({
         maxWidth: "600px",
       }}
     >
-      <h2
+      {/* <h2
         className="scoreboard-title"
         style={{ color: "#333", textAlign: "center" }}
       >
         Scoreboard
-      </h2>
+      </h2> */}
 
       {/* Player 1 Card */}
       <div
