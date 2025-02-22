@@ -67,7 +67,7 @@ function GameControls({
 
   const decrementScore = (player) => {
     if (balls > 1) {
-      setBalls(balls - 1);
+      setBalls(balls + 1);
     } else {
       setBalls(15); // Reset rack when only one ball remains
     }
