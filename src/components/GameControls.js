@@ -128,9 +128,7 @@ function GameControls({
 
   return (
     <div>
-      <button onClick={() => changeFocusedPlayer(focusedPlayer)}>
-        Changer joueur
-      </button>
+      <button onClick={() => changeFocusedPlayer(focusedPlayer)}>Switch</button>
       <button
         style={{ fontWeight: "bolder" }}
         onClick={() => incrementScore(focusedPlayerNumber)}
